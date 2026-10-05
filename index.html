@@ -3,97 +3,176 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Orar Seria B – Grupa 309</title>
+<title>Orar Grupa 309</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#f3f5f9;--card:#fff;--ink:#16202e;--mute:#5d6b7e;--line:#dde3ec;--sem:#1f5eff;--semb:#e6edff;--cur:#0f8a5f;--curb:#e2f5ee;--odd:#b4570b;--oddb:#fdeedd}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark;
+--bg:#0f1626;--card:#172036;--line:#25304b;--ink:#ece7dc;--mute:#8f9ab5;--gold:#d9b36c;
+--c:#7a8fcb;--v:#86cfa6;--d:#d89a62;--s:#b48bd6}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151d;--card:#19212c;--ink:#e8edf5;--mute:#93a0b3;--line:#2a3442;--sem:#7ba2ff;--semb:#1e2d52;--cur:#5ed3a4;--curb:#12372b;--odd:#f0a460;--oddb:#3a2814}}
-:root[data-theme="dark"]{--bg:#10151d;--card:#19212c;--ink:#e8edf5;--mute:#93a0b3;--line:#2a3442;--sem:#7ba2ff;--semb:#1e2d52;--cur:#5ed3a4;--curb:#12372b;--odd:#f0a460;--oddb:#3a2814}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
-main{max-width:720px;margin:0 auto;padding:20px 16px 40px}
-h1{font-size:1.7rem;margin:0 0 2px}
-.sub{color:var(--mute);margin:0 0 16px}
-.tabs{display:flex;gap:8px;margin-bottom:16px}
-.tabs button{flex:1;padding:12px 8px;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:600 .95rem inherit;font-family:inherit;cursor:pointer}
-.tabs button[aria-pressed="true"]{border-color:var(--cur);background:var(--curb)}
-.tabs button:focus-visible{outline:3px solid var(--sem);outline-offset:2px}
-.day{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
-.day h2{margin:0;padding:10px 16px;font-size:1.1rem;background:var(--bg);border-bottom:1px solid var(--line)}
-.row{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 16px;border-top:1px solid var(--line)}
-.row:first-of-type{border-top:0}
-.t{font-weight:700;font-variant-numeric:tabular-nums;line-height:1.25}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 "Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:560px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,.serif{font-family:Fraunces,Georgia,serif;font-weight:400}
+h1{font-size:1.9rem;margin:6px 0 2px}
+h2{font-size:1.5rem;margin:26px 4px 12px}
+.sub{color:var(--mute);margin:0 0 18px}
+.tabs{display:flex;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px;margin-bottom:20px}
+.tabs button{flex:1;border:0;background:none;color:var(--mute);font:500 1rem "Hanken Grotesk",sans-serif;padding:12px 4px;border-radius:15px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#141b2d}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-bottom:14px}
+.card>h3{margin:0;padding:12px 18px;font:500 1.15rem Fraunces,Georgia,serif;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px}
+.card>h3 small{font:400 .85rem "Hanken Grotesk",sans-serif;color:var(--gold);align-self:center}
+.card.today{border-color:var(--gold)}
+.r{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:13px 18px;border-top:1px solid var(--line)}
+.card>h3+.r{border-top:0}
+.t{font-weight:600;font-variant-numeric:tabular-nums;line-height:1.25}
 .t small{display:block;color:var(--mute);font-weight:400}
 .n{font-weight:600}
-.m{color:var(--mute);font-size:.9rem}
-.tag{display:inline-block;font-size:.75rem;font-weight:700;padding:1px 8px;border-radius:99px;margin-right:6px;vertical-align:1px}
-.S{background:var(--semb);color:var(--sem)}
-.C{background:var(--curb);color:var(--cur)}
-.E{background:var(--oddb);color:var(--odd)}
-.W{background:var(--oddb);color:var(--odd)}
-.free{padding:14px 16px;color:var(--mute)}
-.hide{display:none}
-.note{color:var(--mute);font-size:.85rem;margin-top:18px}
+.m{color:var(--mute);font-size:.9rem;margin-top:2px}
+.tag{display:inline-block;font-size:.75rem;font-weight:600;padding:1px 9px;border-radius:99px;margin-right:6px;border:1px solid var(--gold);color:var(--gold)}
+.free{padding:16px 18px;color:var(--mute)}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:10px}
+.nav button,.cn button{width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.2rem;cursor:pointer}
+.nav button:disabled,.cn button:disabled{opacity:.3}
+.nav div{text-align:center}
+.nav .serif{font-size:1.3rem}
+.big{font:400 2rem/1.1 Fraunces,Georgia,serif;margin:0 4px 4px}
+.badge{margin:0 4px 16px;color:var(--gold)}
+.bar{display:flex;gap:5px;height:14px;margin:14px 4px 12px;position:relative}
+.bar i{display:block;border-radius:7px}
+.bar b{position:absolute;top:-5px;width:4px;height:24px;background:var(--ink);border-radius:2px}
+.leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.95rem}
+.leg span:before{content:"";display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:8px;vertical-align:-2px;background:var(--k)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px 14px}
+.stat b{display:block;font:400 2.4rem/1 Fraunces,Georgia,serif}
+.stat span{color:var(--mute);font-size:.9rem;display:block;margin-top:10px}
+.cal{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px}
+.g{display:grid;grid-template-columns:30px repeat(7,1fr);gap:5px;margin-top:10px}
+.g .h{color:var(--mute);text-align:center;font-size:.9rem;padding:6px 0}
+.wn{text-align:center;font-size:.78rem;font-weight:700;line-height:1.15;align-self:center;color:var(--mute)}
+.g button{aspect-ratio:1/.9;border:0;border-radius:11px;background:none;color:var(--mute);font:500 1.05rem "Hanken Grotesk",sans-serif;position:relative;cursor:pointer;padding:0}
+.g button.c{background:#27355f;color:var(--ink)}
+.g button.d{background:#4a3a2c;color:var(--ink)}
+.g button.s{background:#3d2f55;color:var(--ink)}
+.g button.v{background:#1f4437;color:var(--ink)}
+.g button.o{opacity:.3}
+.g button.f:after{content:"";position:absolute;bottom:5px;left:calc(50% - 3px);width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.g button.now{outline:2px solid var(--gold);outline-offset:-1px}
+.g button.sel{box-shadow:inset 0 0 0 2px var(--ink)}
+.cn{display:flex;align-items:center;justify-content:space-between}
+.cn span{font:400 1.4rem Fraunces,Georgia,serif}
+.note{color:var(--mute);font-size:.9rem;margin:14px 2px 0}
+.li{display:flex;align-items:center;gap:14px;padding:17px 18px;border-top:1px solid var(--line)}
+.li:first-child{border-top:0}
+.li i{width:12px;height:12px;border-radius:50%;background:var(--k);flex:none}
+.li span{flex:1;font-size:1.05rem}
+.li em{font-style:normal;color:var(--mute);text-align:right}
+.li em.cur{color:var(--gold);font-weight:500}
 </style>
 </head>
 <body>
 <main>
 <h1>Grupa 309</h1>
-<p class="sub">Seria B · orarul tău</p>
-<div class="tabs" role="group" aria-label="Alege săptămâna">
-<button id="bp" aria-pressed="true">Săptămâna pară (acum)</button>
-<button id="bi" aria-pressed="false">Săptămâna impară</button>
-</div>
-<div id="out"></div>
-<p class="note">Cursurile sunt comune pentru toată seria.</p>
+<p class="sub">Seria B · Semestrul I, 2026–2027</p>
+<nav class="tabs" id="tabs">
+<button data-t="a">Azi</button><button data-t="w">Săptămână</button><button data-t="s">Semestru</button>
+</nav>
+<div id="v"></div>
 </main>
 <script>
-// w: 'p' = doar para, 'i' = doar impara, '' = in fiecare saptamana
-var D=[
-["Luni",[
-["9:10 – 10:40","C","Contabilitate","curs · Gisberto Alberta Georgeta · sala 3 M V",""],
-["10:50 – 12:20","S","Matematică","sala 1216 · Popescu",""],
-["12:30 – 14:00","C","Dreptul afacerilor","curs · Ștefan (Cojocaru) Cristina · sala 3 M V",""],
-["15:50 – 17:20","E","Educație fizică și sport","sala 6201C · Tardea Corina",""]]],
-["Marți",[
-["7:30 – 9:00","C","Matematică","curs · Popescu Costin Ciprian · sala AMF. I",""],
-["9:10 – 10:40","S","Contabilitate","sala 1213 · Coman",""],
-["10:50 – 12:20","C","Fundamentele științei mărfurilor","curs · Bobe Magdalena · sala 2203",""]]],
-["Miercuri",[
-["12:30 – 14:00","C","Design și estetica mărfurilor","curs · Giușcă (Vișan) Smaranda · sala AMF. I",""],
-["14:10 – 15:40","S","Limba engleză și comunicare de specialitate 1","sala 1217 · Nicolae",""],
-["15:50 – 17:20","S","Fundamentele științei mărfurilor","sala 1215 · Bobe",""],
-["17:30 – 19:00","S","Microeconomie","sala B301 · Crețu","p"]]],
-["Joi",[
-["10:50 – 12:20","S","Informatică economică","sala B301 · Luchian",""],
-["12:30 – 14:00","C","Informatică economică","curs · Georgescu Tiberiu Marian · sala 3 M V","i"]]],
-["Vineri",[
-["14:10 – 15:40","S","Design și estetica mărfurilor","sala 1216 · Vișan","i"],
-["15:50 – 17:20","C","Microeconomie","curs · Chenic (Crețu) Alina Ștefania · sala AMF. I",""],
-["17:30 – 19:00","S","Dreptul afacerilor","sala 1214 · Tulac","i"]]],
-["Sâmbătă",[]]
-];
-function esc(s){return s}
-function render(w){
-var h="";
-D.forEach(function(d){
-var rows=d[1].filter(function(r){return r[5-1]===""||r[4]===w});
-h+='<section class="day"><h2>'+d[0]+'</h2>';
-if(!rows.length)h+='<div class="free">Liber</div>';
-rows.forEach(function(r){
-var tp=r[1]==="C"?"Curs":r[1]==="E"?"Sport":"Seminar";
-var wk=r[4]==="p"?'<span class="tag C">doar pară</span>':r[4]==="i"?'<span class="tag W">doar impară</span>':'';
-h+='<div class="row"><div class="t">'+r[0].replace(" – ","<small>până la</small>").replace(/^(.*?)<small>/,"$1<small>")+'</div><div><div class="n">'+r[2]+'</div><div class="m"><span class="tag '+r[1]+'">'+tp+'</span>'+wk+r[3]+'</div></div></div>';
-});
-h+='</section>';
-});
-document.getElementById("out").innerHTML=h;
-}
-var bp=document.getElementById("bp"),bi=document.getElementById("bi");
-function set(w){render(w);bp.setAttribute("aria-pressed",w==="p");bi.setAttribute("aria-pressed",w==="i")}
-bp.onclick=function(){set("p")};bi.onclick=function(){set("i")};
-set("p");
+var MO=['ian','feb','mar','apr','mai','iun','iul','aug','sept','oct','nov','dec'],
+MF=['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie'],
+DN=['Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă','Duminică'],DS=['lun','mar','mie','joi','vin','sâm','dum'];
+function D(y,m,d){return new Date(y,m,d,12)}
+function df(a,b){return Math.round((b-a)/864e5)}
+function key(d){return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()}
+function ft(d){return d.getDate()+' '+MO[d.getMonth()]}
+function mon(d){return D(d.getFullYear(),d.getMonth(),d.getDate()-(d.getDay()+6)%7)}
+function add(d,n){return D(d.getFullYear(),d.getMonth(),d.getDate()+n)}
+var T0=D(2026,8,28),T1=D(2027,1,21),N=new Date();N=D(N.getFullYear(),N.getMonth(),N.getDate());
+var P=[
+{c:'c',n:'Cursuri',a:T0,b:D(2026,11,20),l:'28 sept – 20 dec'},
+{c:'v',n:'Vacanța de iarnă',a:D(2026,11,21),b:D(2027,0,10),l:'21 dec – 10 ian'},
+{c:'d',n:'Didactică și evaluare',a:D(2027,0,11),b:D(2027,0,24),l:'11 – 23 ian'},
+{c:'s',n:'Sesiunea de evaluare',a:D(2027,0,25),b:D(2027,1,14),l:'25 ian – 14 feb'},
+{c:'v',n:'Vacanța intersemestrială',a:D(2027,1,15),b:T1,l:'15 – 21 feb'}];
+var COL={c:'#7a8fcb',v:'#86cfa6',d:'#d89a62',s:'#b48bd6'};
+var FL=[[D(2026,10,30),'Sf. Andrei'],[D(2026,11,1),'Ziua Națională'],[D(2026,11,25),'Crăciunul'],[D(2026,11,26),'A doua zi de Crăciun'],[D(2027,0,1),'Anul Nou'],[D(2027,0,2),'Anul Nou'],[D(2027,0,6),'Boboteaza'],[D(2027,0,7),'Sf. Ioan Botezătorul']],FR={};
+FL.forEach(function(f){FR[key(f[0])]=f[1]});
+// [start,end,tip,materie,detalii,saptamana: ''=mereu, 'p'=para, 'i'=impara]
+var S=[
+[["9:10","10:40","C","Contabilitate","Curs · Gisberto Alberta Georgeta · sala 3 M V",""],
+["10:50","12:20","S","Matematică","Seminar · sala 1216 · Popescu",""],
+["12:30","14:00","C","Dreptul afacerilor","Curs · Ștefan (Cojocaru) Cristina · sala 3 M V",""],
+["15:50","17:20","E","Educație fizică și sport","Sport · sala 6201C · Tardea Corina",""]],
+[["7:30","9:00","C","Matematică","Curs · Popescu Costin Ciprian · sala AMF. I",""],
+["9:10","10:40","S","Contabilitate","Seminar · sala 1213 · Coman",""],
+["10:50","12:20","C","Fundamentele științei mărfurilor","Curs · Bobe Magdalena · sala 2203",""]],
+[["12:30","14:00","C","Design și estetica mărfurilor","Curs · Giușcă (Vișan) Smaranda · sala AMF. I",""],
+["14:10","15:40","S","Limba engleză și comunicare de specialitate 1","Seminar · sala 1217 · Nicolae",""],
+["15:50","17:20","S","Fundamentele științei mărfurilor","Seminar · sala 1215 · Bobe",""],
+["17:30","19:00","S","Microeconomie","Seminar · sala B301 · Crețu","p"]],
+[["10:50","12:20","S","Informatică economică","Seminar · sala B301 · Luchian",""],
+["12:30","14:00","C","Informatică economică","Curs · Georgescu Tiberiu Marian · sala 3 M V","i"]],
+[["14:10","15:40","S","Design și estetica mărfurilor","Seminar · sala 1216 · Vișan","i"],
+["15:50","17:20","C","Microeconomie","Curs · Chenic (Crețu) Alina Ștefania · sala AMF. I",""],
+["17:30","19:00","S","Dreptul afacerilor","Seminar · sala 1214 · Tulac","i"]],
+[]];
+function per(d){for(var i=0;i<P.length;i++)if(d>=P[i].a&&d<=P[i].b)return P[i];return null}
+// numaram doar saptamanile didactice (vacanta de iarna nu se numara)
+function wn(d){var m=mon(d),n=Math.floor(df(T0,m)/7)+1;if(m>=D(2027,0,11))n-=3;return n}
+function par(d){return wn(d)%2?'i':'p'}
+function teach(d){var p=per(d);return p&&(p.c=='c'||p.c=='d')}
+function card(d){
+var dow=(d.getDay()+6)%7,fr=FR[key(d)],p=per(d),pr=par(d),isN=+d==+N;
+var h='<div class="card'+(isN?' today':'')+'"><h3><span>'+DN[dow]+', '+ft(d)+'</span>'+(isN?'<small>azi</small>':'')+'</h3>';
+if(fr)h+='<div class="free">Zi liberă · '+fr+'</div>';
+else if(!teach(d))h+='<div class="free">'+(p?p.n:'În afara semestrului')+'</div>';
+else{var L=(S[dow]||[]).filter(function(e){return !e[5]||e[5]==pr});
+if(!L.length)h+='<div class="free">Liber</div>';
+L.forEach(function(e){
+h+='<div class="r"><div class="t">'+e[0]+'<small>'+e[1]+'</small></div><div><div class="n">'+e[3]+'</div><div class="m">'+(e[5]?'<span class="tag">doar '+(e[5]=='p'?'pară':'impară')+'</span>':'')+e[4]+'</div></div></div>'});}
+return h+'</div>'}
+var tab='a',wk=mon(N<T0?T0:N>T1?T1:N),cm=D(N<T0?2026:N.getFullYear(),N<T0?8:N.getMonth(),1);
+function tp(m){return teach(m)?'Săptămâna '+wn(m)+' · '+(par(m)=='p'?'pară':'impară'):(per(m)?per(m).n:'')}
+function vA(){return '<div class="big">'+DN[(N.getDay()+6)%7]+', '+ft(N)+'</div><div class="badge">'+tp(mon(N))+'</div>'+card(N)+card(add(N,1))}
+function vW(){
+return '<div class="nav"><button data-w="-1" aria-label="Săptămâna anterioară"'+(wk<=T0?' disabled':'')+'>‹</button><div><div class="serif">'+ft(wk)+' – '+ft(add(wk,6))+'</div><div class="m">'+tp(wk)+'</div></div><button data-w="1" aria-label="Săptămâna următoare"'+(add(wk,7)>T1?' disabled':'')+'>›</button></div>'+[0,1,2,3,4,5].map(function(i){return card(add(wk,i))}).join('')}
+function vS(){
+var tot=df(T0,T1)+1,bar='',pc=Math.max(0,Math.min(100,df(T0,N)/tot*100));
+P.forEach(function(p){bar+='<i style="width:'+((df(p.a,p.b)+1)/tot*100)+'%;background:'+COL[p.c]+'"></i>'});
+var leg='<div class="leg"><span style="--k:'+COL.c+'">Cursuri</span><span style="--k:'+COL.v+'">Vacanță</span><span style="--k:'+COL.d+'">Didactică și evaluare</span><span style="--k:'+COL.s+'">Sesiune</span></div>';
+var left=0;for(var x=N<T0?T0:N;x<=P[0].b;x=add(x,1)){if((x.getDay()+6)%7<5&&!FR[key(x)])left++}
+var h='<div style="display:flex;justify-content:space-between;align-items:baseline;margin:0 4px"><span class="serif" style="font-size:1.6rem">Semestrul I, 2026–2027</span><span class="m">'+Math.round(pc)+'% parcurs</span></div><div class="bar">'+bar+'<b style="left:'+pc+'%"></b></div>'+leg;
+h+='<div class="stats"><div class="stat"><b>'+Math.max(0,df(N,P[1].a))+'</b><span>zile până la vacanța de iarnă</span></div><div class="stat"><b>'+Math.max(0,df(N,P[3].a))+'</b><span>zile până la sesiune</span></div><div class="stat"><b>'+left+'</b><span>zile de cursuri rămase</span></div></div>';
+var y=cm.getFullYear(),mo=cm.getMonth(),last=D(y,mo+1,0),st=mon(D(y,mo,1));
+var pv=D(y,mo-1,1)<D(2026,8,1),nx=D(y,mo+1,1)>D(2027,1,1);
+h+='<div class="cal"><div class="cn"><button data-m="-1" aria-label="Luna anterioară"'+(pv?' disabled':'')+'>‹</button><span>'+MF[mo]+' '+y+'</span><button data-m="1" aria-label="Luna următoare"'+(nx?' disabled':'')+'>›</button></div><div class="g"><div class="h">Săpt</div>'+['L','Ma','Mi','J','V','S','D'].map(function(z){return '<div class="h">'+z+'</div>'}).join('');
+for(var w=0;w<6;w++){var m0=add(st,w*7);if(m0>last)break;
+h+='<div class="wn">'+(teach(m0)||teach(add(m0,4))?wn(m0)+'<br>'+(par(m0)=='p'?'P':'I'):'')+'</div>';
+for(var i=0;i<7;i++){var d=add(m0,i),p=per(d),cl=[],inM=d.getMonth()==mo;
+if(!inM)cl.push('o');else if(i<5&&p)cl.push(p.c);
+if(FR[key(d)]&&inM)cl.push('f');if(+d==+N)cl.push('now');if(+mon(d)==+wk&&inM)cl.push('sel');
+h+='<button class="'+cl.join(' ')+'" data-d="'+(+d)+'">'+d.getDate()+'</button>'}}
+h+='</div><div class="leg" style="margin-top:14px"><span style="--k:'+COL.c+'">Cursuri</span><span style="--k:'+COL.d+'">Didactică și evaluare</span><span style="--k:'+COL.s+'">Sesiune</span><span style="--k:'+COL.v+'">Vacanță</span><span style="--k:#d9b36c">Zi liberă</span></div><div class="note">P = săptămână pară, I = impară. Atinge o zi ca să vezi orarul din săptămâna aceea.</div></div>';
+h+='<h2>Date importante</h2><div class="card">'+P.map(function(p){var cur=N>=p.a&&N<=p.b;return '<div class="li" style="--k:'+COL[p.c]+'"><i></i><span>'+p.n+'</span><em'+(cur?' class="cur"':'')+'>'+(cur?'acum, ':'')+p.l+'</em></div>'}).join('')+'</div>';
+h+='<h2>Zile libere</h2><div class="card">'+FL.map(function(f){return '<div class="li" style="--k:#d9b36c"><i></i><span>'+f[1]+'</span><em>'+DS[(f[0].getDay()+6)%7]+', '+ft(f[0])+'</em></div>'}).join('')+'</div>';
+return h}
+function R(){
+document.querySelectorAll('#tabs button').forEach(function(b){b.className=b.dataset.t==tab?'on':''});
+document.getElementById('v').innerHTML=tab=='a'?vA():tab=='w'?vW():vS()}
+document.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+if(b.dataset.t){tab=b.dataset.t}
+else if(b.dataset.w){wk=add(wk,7*b.dataset.w)}
+else if(b.dataset.m){cm=D(cm.getFullYear(),cm.getMonth()+ +b.dataset.m,1)}
+else if(b.dataset.d){wk=mon(new Date(+b.dataset.d));tab='w'}
+else return;R();window.scrollTo(0,0)});
+R();
 </script>
 </body>
 </html>
