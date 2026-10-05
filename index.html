@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orar Seria B – Grupa 309</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f5f9;--card:#fff;--ink:#16202e;--mute:#5d6b7e;--line:#dde3ec;--sem:#1f5eff;--semb:#e6edff;--cur:#0f8a5f;--curb:#e2f5ee;--odd:#b4570b;--oddb:#fdeedd}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151d;--card:#19212c;--ink:#e8edf5;--mute:#93a0b3;--line:#2a3442;--sem:#7ba2ff;--semb:#1e2d52;--cur:#5ed3a4;--curb:#12372b;--odd:#f0a460;--oddb:#3a2814}}
+:root[data-theme="dark"]{--bg:#10151d;--card:#19212c;--ink:#e8edf5;--mute:#93a0b3;--line:#2a3442;--sem:#7ba2ff;--semb:#1e2d52;--cur:#5ed3a4;--curb:#12372b;--odd:#f0a460;--oddb:#3a2814}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:1.7rem;margin:0 0 2px}
+.sub{color:var(--mute);margin:0 0 16px}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tabs button{flex:1;padding:12px 8px;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:600 .95rem inherit;font-family:inherit;cursor:pointer}
+.tabs button[aria-pressed="true"]{border-color:var(--cur);background:var(--curb)}
+.tabs button:focus-visible{outline:3px solid var(--sem);outline-offset:2px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+.day h2{margin:0;padding:10px 16px;font-size:1.1rem;background:var(--bg);border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:12px 16px;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.t{font-weight:700;font-variant-numeric:tabular-nums;line-height:1.25}
+.t small{display:block;color:var(--mute);font-weight:400}
+.n{font-weight:600}
+.m{color:var(--mute);font-size:.9rem}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;padding:1px 8px;border-radius:99px;margin-right:6px;vertical-align:1px}
+.S{background:var(--semb);color:var(--sem)}
+.C{background:var(--curb);color:var(--cur)}
+.E{background:var(--oddb);color:var(--odd)}
+.W{background:var(--oddb);color:var(--odd)}
+.free{padding:14px 16px;color:var(--mute)}
+.hide{display:none}
+.note{color:var(--mute);font-size:.85rem;margin-top:18px}
+</style>
+</head>
+<body>
+<main>
+<h1>Grupa 309</h1>
+<p class="sub">Seria B · orarul tău</p>
+<div class="tabs" role="group" aria-label="Alege săptămâna">
+<button id="bp" aria-pressed="true">Săptămâna pară (acum)</button>
+<button id="bi" aria-pressed="false">Săptămâna impară</button>
+</div>
+<div id="out"></div>
+<p class="note">Cursurile sunt comune pentru toată seria.</p>
+</main>
+<script>
+// w: 'p' = doar para, 'i' = doar impara, '' = in fiecare saptamana
+var D=[
+["Luni",[
+["9:10 – 10:40","C","Contabilitate","curs · Gisberto Alberta Georgeta · sala 3 M V",""],
+["10:50 – 12:20","S","Matematică","sala 1216 · Popescu",""],
+["12:30 – 14:00","C","Dreptul afacerilor","curs · Ștefan (Cojocaru) Cristina · sala 3 M V",""],
+["15:50 – 17:20","E","Educație fizică și sport","sala 6201C · Tardea Corina",""]]],
+["Marți",[
+["7:30 – 9:00","C","Matematică","curs · Popescu Costin Ciprian · sala AMF. I",""],
+["9:10 – 10:40","S","Contabilitate","sala 1213 · Coman",""],
+["10:50 – 12:20","C","Fundamentele științei mărfurilor","curs · Bobe Magdalena · sala 2203",""]]],
+["Miercuri",[
+["12:30 – 14:00","C","Design și estetica mărfurilor","curs · Giușcă (Vișan) Smaranda · sala AMF. I",""],
+["14:10 – 15:40","S","Limba engleză și comunicare de specialitate 1","sala 1217 · Nicolae",""],
+["15:50 – 17:20","S","Fundamentele științei mărfurilor","sala 1215 · Bobe",""],
+["17:30 – 19:00","S","Microeconomie","sala B301 · Crețu","p"]]],
+["Joi",[
+["10:50 – 12:20","S","Informatică economică","sala B301 · Luchian",""],
+["12:30 – 14:00","C","Informatică economică","curs · Georgescu Tiberiu Marian · sala 3 M V",""]]],
+["Vineri",[
+["14:10 – 15:40","S","Design și estetica mărfurilor","sala 1216 · Vișan","i"],
+["15:50 – 17:20","C","Microeconomie","curs · Chenic (Crețu) Alina Ștefania · sala AMF. I",""],
+["17:30 – 19:00","S","Dreptul afacerilor","sala 1214 · Tulac","i"]]],
+["Sâmbătă",[]]
+];
+function esc(s){return s}
+function render(w){
+var h="";
+D.forEach(function(d){
+var rows=d[1].filter(function(r){return r[5-1]===""||r[4]===w});
+h+='<section class="day"><h2>'+d[0]+'</h2>';
+if(!rows.length)h+='<div class="free">Liber</div>';
+rows.forEach(function(r){
+var tp=r[1]==="C"?"Curs":r[1]==="E"?"Sport":"Seminar";
+var wk=r[4]==="p"?'<span class="tag C">doar pară</span>':r[4]==="i"?'<span class="tag W">doar impară</span>':'';
+h+='<div class="row"><div class="t">'+r[0].replace(" – ","<small>până la</small>").replace(/^(.*?)<small>/,"$1<small>")+'</div><div><div class="n">'+r[2]+'</div><div class="m"><span class="tag '+r[1]+'">'+tp+'</span>'+wk+r[3]+'</div></div></div>';
+});
+h+='</section>';
+});
+document.getElementById("out").innerHTML=h;
+}
+var bp=document.getElementById("bp"),bi=document.getElementById("bi");
+function set(w){render(w);bp.setAttribute("aria-pressed",w==="p");bi.setAttribute("aria-pressed",w==="i")}
+bp.onclick=function(){set("p")};bi.onclick=function(){set("i")};
+set("p");
+</script>
+</body>
+</html>
