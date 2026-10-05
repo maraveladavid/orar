@@ -97,10 +97,9 @@ function add(d,n){return D(d.getFullYear(),d.getMonth(),d.getDate()+n)}
 var T0=D(2026,8,28),T1=D(2027,1,21),N=new Date();N=D(N.getFullYear(),N.getMonth(),N.getDate());
 var P=[
 {c:'c',n:'Cursuri',a:T0,b:D(2026,11,20),l:'28 sept – 20 dec'},
-{c:'v',n:'Vacanța de iarnă',a:D(2026,11,21),b:D(2027,0,10),l:'21 dec – 10 ian'},
-{c:'d',n:'Didactică și evaluare',a:D(2027,0,11),b:D(2027,0,24),l:'11 – 23 ian'},
-{c:'s',n:'Sesiunea de evaluare',a:D(2027,0,25),b:D(2027,1,14),l:'25 ian – 14 feb'},
-{c:'v',n:'Vacanța intersemestrială',a:D(2027,1,15),b:T1,l:'15 – 21 feb'}];
+{c:'v',n:'Vacanța de iarnă',a:D(2026,11,21),b:D(2027,0,10),l:'22 dec – 7 ian'},
+{c:'s',n:'Sesiunea de evaluare',a:D(2027,0,25),b:D(2027,1,14),l:'19 ian – 7 feb'},
+{c:'v',n:'Vacanța intersemestrială',a:D(2027,1,15),b:T1,l:'9 – 15 feb'}];
 var COL={c:'#7a8fcb',v:'#86cfa6',d:'#d89a62',s:'#b48bd6'};
 var FL=[[D(2026,10,30),'Sf. Andrei'],[D(2026,11,1),'Ziua Națională'],[D(2026,11,25),'Crăciunul'],[D(2026,11,26),'A doua zi de Crăciun'],[D(2027,0,1),'Anul Nou'],[D(2027,0,2),'Anul Nou'],[D(2027,0,6),'Boboteaza'],[D(2027,0,7),'Sf. Ioan Botezătorul']],FR={};
 FL.forEach(function(f){FR[key(f[0])]=f[1]});
